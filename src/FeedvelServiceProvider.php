@@ -2,7 +2,7 @@
 
 namespace Avfigueredo\Feedvel;
 
-use Avfigueredo\Feedvel\Commands\FeedvelCommand;
+use Avfigueredo\Feedvel\Commands\Feed;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -18,8 +18,6 @@ class FeedvelServiceProvider extends PackageServiceProvider
         $package
             ->name('feedvel')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_feedvel_table')
-            ->hasCommand(FeedvelCommand::class);
+            ->hasCommand(Feed::class);
     }
 }
