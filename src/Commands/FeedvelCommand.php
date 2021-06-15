@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Avfigueredo\Feedvel\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FeedvelCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'feedvel';
 
     public $description = 'My command';
 

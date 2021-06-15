@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Avfigueredo\Feedvel\Tests;
 
 class ExampleTest extends TestCase
 {

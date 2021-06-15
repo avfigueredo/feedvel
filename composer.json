@@ -1,17 +1,17 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "avfigueredo/feedvel",
+    "description": "Package to obtain the feed rss",
     "keywords": [
-        ":vendor_name",
+        "avfigueredo",
         "laravel",
-        "package_slug"
+        "feedvel"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/avfigueredo/feedvel",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Andre Figueredo",
+            "email": "andrevfigueredo@gmail.com",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Avfigueredo\\Feedvel\\": "src",
+            "Avfigueredo\\Feedvel\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Avfigueredo\\Feedvel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Avfigueredo\\Feedvel\\FeedvelServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "Feedvel": "Avfigueredo\\Feedvel\\FeedvelFacade"
             }
         }
     },
