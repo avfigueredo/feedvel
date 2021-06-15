@@ -2,9 +2,9 @@
 
 namespace Avfigueredo\Feedvel\Tests;
 
+use Avfigueredo\Feedvel\FeedvelServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Avfigueredo\Feedvel\FeedvelServiceProvider;
 
 class TestCase extends Orchestra
 {
