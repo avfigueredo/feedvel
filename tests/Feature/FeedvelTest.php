@@ -9,6 +9,5 @@ class FeedvelTest extends TestCase
     /** @test */
     public function it_can()
     {
-        
     }
 }

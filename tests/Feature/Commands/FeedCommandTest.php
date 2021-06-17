@@ -5,7 +5,6 @@ namespace Avfigueredo\Feedvel\Tests\Feature\Commands;
 use Avfigueredo\Feedvel\Commands\FeedCommand;
 use Avfigueredo\Feedvel\Tests\TestCase;
 
-
 class FeedCommandTest extends TestCase
 {
     /** @test */
@@ -15,6 +14,4 @@ class FeedCommandTest extends TestCase
 //            ->artisan(FeedCommand::class,'https://news.google.com/')
 //            ->assertExitCode(0);
     }
-
-
 }

@@ -20,6 +20,4 @@ class FeedvelServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasCommand(FeedCommand::class);
     }
-
-
 }
