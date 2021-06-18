@@ -1,5 +1,5 @@
 <?php
-// config for Avfigueredo/ClassName
-return [
 
+return [
+    'date_format' => 'd/m/Y H:i:s'
 ];
