@@ -49,13 +49,13 @@ class Feedvel
 
     public function posts(): Collection
     {
-        return collect($this->feed->get_items())->map(fn($item) => [
-            'guid'         => $item->data['child']['']['guid'][0]['data'],
-            'title'        => $item->data['child']['']['title'][0]['data'],
-            'link'         => $item->data['child']['']['link'][0]['data'],
+        return collect($this->feed->get_items())->map(fn ($item) => [
+            'guid' => $item->data['child']['']['guid'][0]['data'],
+            'title' => $item->data['child']['']['title'][0]['data'],
+            'link' => $item->data['child']['']['link'][0]['data'],
             'publish_date' => Carbon::parse($item->data['child']['']['pubDate'][0]['data'])->format(config('feedvel.date_format')),
-            'content'      => strip_tags($item->data['child']['']['description'][0]['data']),
-            'categories'   => collect($item->data['child']['']['category'])->map(fn($category) => $category['data'])->toArray(),
+            'content' => strip_tags($item->data['child']['']['description'][0]['data']),
+            'categories' => collect($item->data['child']['']['category'])->map(fn ($category) => $category['data'])->toArray(),
         ]);
     }
 }

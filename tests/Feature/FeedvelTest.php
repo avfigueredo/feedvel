@@ -2,10 +2,8 @@
 
 namespace Avfigueredo\Feedvel\Tests\Feature;
 
-use Assert\Assertion;
 use Avfigueredo\Feedvel\Feedvel;
 use Avfigueredo\Feedvel\Tests\TestCase;
-use SimplePie;
 
 class FeedvelTest extends TestCase
 {
