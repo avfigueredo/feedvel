@@ -68,15 +68,15 @@ class Feedvel
             'title' => $item->data['child']['']['title'][0]['data'],
             'link' => $item->data['child']['']['link'][0]['data'],
             'publish_date' => Carbon::parse($item->data['child']['']['pubDate'][0]['data'])->format(config('feedvel.date_format')),
-            'content'      => strip_tags($item->data['child']['']['description'][0]['data']),
-            'categories'   => $this->categories($item),
+            'content' => strip_tags($item->data['child']['']['description'][0]['data']),
+            'categories' => $this->categories($item),
         ]);
     }
 
     private function categories($item)
     {
         if (isset($item->data['child']['']['category'])) {
-            return collect($item->data['child']['']['category'])->map(fn($category) => $category['data'])->toArray();
+            return collect($item->data['child']['']['category'])->map(fn ($category) => $category['data'])->toArray();
         }
 
         return [];

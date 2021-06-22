@@ -25,5 +25,4 @@ class FeedvelTest extends TestCase
         $this->assertNull($feed->authors());
         $this->assertCount(10, $feed->posts()->toArray());
     }
-
 }

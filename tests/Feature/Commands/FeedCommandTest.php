@@ -11,8 +11,8 @@ class FeedCommandTest extends TestCase
     public function it_can_check_if_a_site_has_a_feed()
     {
         $this
-            ->artisan(FeedCommand::class,[
-                'url' => 'https://www.theminimalists.com/feed/'
+            ->artisan(FeedCommand::class, [
+                'url' => 'https://www.theminimalists.com/feed/',
             ])
             ->assertExitCode(0);
     }
