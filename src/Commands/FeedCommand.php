@@ -17,7 +17,7 @@ class FeedCommand extends Command
 
         $url = $this->argument('url');
 
-        if (!$url) {
+        if (! $url) {
             $this->error('The parameter url is missing.');
             exit;
         }
