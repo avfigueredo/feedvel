@@ -1,29 +1,13 @@
-# Package to obtain the feed rss
+# Feedvel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/avfigueredo/feedvel.svg?style=flat-square)](https://packagist.org/packages/avfigueredo/feedvel)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/avfigueredo/feedvel/run-tests?label=tests)](https://github.com/avfigueredo/feedvel/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/avfigueredo/feedvel/Check%20&%20fix%20styling?label=code%20style)](https://github.com/avfigueredo/feedvel/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/avfigueredo/feedvel.svg?style=flat-square)](https://packagist.org/packages/avfigueredo/feedvel)
 
----
-This repo can be used as to scaffold a Laravel package. Follow these steps to get started:
+## About 
 
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this feedvel
-2. Run "./configure-feedvel.sh" to run a script that will replace all placeholders throughout all the files
-3. Remove this block of text.
-4. Have fun creating your package.
-5. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/feedvel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/feedvel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+Feedvel is an amazing package to obtain the feed RSS from a site. The Feedvel package uses the SimplePie parse feed. (http://simplepie.org/wiki/).
 
 ## Installation
 
@@ -31,13 +15,6 @@ You can install the package via composer:
 
 ```bash
 composer require avfigueredo/feedvel
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Avfigueredo\Feedvel\FeedvelServiceProvider" --tag="feedvel-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -49,14 +26,47 @@ This is the contents of the published config file:
 
 ```php
 return [
+    //Specifies the date format.
+    'date_format' => 'd/m/Y H:i:s'
 ];
 ```
+
+## Commands 
+
+You can run the command below passing the URL as a parameter to check if the site has a feed.
+
+```bash
+php artisan feedvel:feed https://www.theminimalists.com/feed/
+```
+
+```bash
++------+-----------------+-------+
+| Feed | Title           | Posts |
++------+-----------------+-------+
+| OK   | The Minimalists | 10    |
++------+-----------------+-------+
+```
+
+
 
 ## Usage
 
 ```php
-$feedvel = new Avfigueredo\Feedvel();
-echo $feedvel->echoPhrase('Hello, Spatie!');
+use Avfigueredo\Feedvel\Feedvel;
+
+$feed = Feedvel::from('https://www.theminimalists.com/feed/');
+
+$feed->successful(); // bool
+$feed->error(); // returns the message error.
+
+// Content
+$feed->title(); // returns the title.
+$feed->author(); // returns the author.
+$feed->authors(); // returns the authors.
+$feed->posts(); // returns the posts.
+$feed->original(); // returns the original simple pie object.
+
+
 ```
 
 ## Testing
@@ -80,7 +90,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Andre Figueredo](https://github.com/avfigueredo)
-- [All Contributors](../../contributors)
+- [Simple Pie](http://simplepie.org/wiki/)
 
 ## License
 
