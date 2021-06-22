@@ -2,24 +2,40 @@
 
 namespace Avfigueredo\Feedvel\Commands;
 
-use Assert\Assertion;
+use Avfigueredo\Feedvel\Feedvel;
 use Illuminate\Console\Command;
 
 class FeedCommand extends Command
 {
-//    public $signature = 'feed {site}';
-    public $signature = 'feed';
+    public $signature = 'feed {url}';
 
-    public $description = 'Test if a site has a available feed.';
+    public $description = 'Test if a site has an available feed.';
 
     public function handle()
     {
-        $this->comment("Testing...");
+        $this->comment("Checking...");
 
-//        $site = $this->argument('site');
+        $url = $this->argument('url');
 
-//        Assertion::url($site);
+        if (!$url) {
+            $this->error('The parameter url is missing.');
+            exit;
+        }
 
-//        $this->comment('All done')done;
+        $feed = Feedvel::from($url);
+
+        $this->table(
+            ['Feed', 'Title', 'Posts'],
+            [
+                [
+                    $feed->successful() ? 'OK' : 'NOK',
+                    $feed->title(),
+                    $feed->posts()->count(),
+                ],
+            ]
+        );
+
+
+        $this->comment('All done');
     }
 }

@@ -8,10 +8,12 @@ use Avfigueredo\Feedvel\Tests\TestCase;
 class FeedCommandTest extends TestCase
 {
     /** @test */
-    public function it_validate_that_the_parameter_is_a_valid_url()
+    public function it_can_check_if_a_site_has_a_feed()
     {
-//        $this
-//            ->artisan(FeedCommand::class,'https://news.google.com/')
-//            ->assertExitCode(0);
+        $this
+            ->artisan(FeedCommand::class,[
+                'url' => 'https://www.theminimalists.com/feed/'
+            ])
+            ->assertExitCode(0);
     }
 }

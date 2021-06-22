@@ -2,10 +2,8 @@
 
 namespace Avfigueredo\Feedvel\Tests\Feature;
 
-use Assert\Assertion;
 use Avfigueredo\Feedvel\Feedvel;
 use Avfigueredo\Feedvel\Tests\TestCase;
-use SimplePie;
 
 class FeedvelTest extends TestCase
 {
@@ -21,9 +19,11 @@ class FeedvelTest extends TestCase
     {
         $feed = Feedvel::from('https://www.theminimalists.com/feed/');
 
+        $this->assertTrue($feed->successful());
         $this->assertEquals('The Minimalists', $feed->title());
         $this->assertNull($feed->author());
         $this->assertNull($feed->authors());
         $this->assertCount(10, $feed->posts()->toArray());
     }
+
 }
