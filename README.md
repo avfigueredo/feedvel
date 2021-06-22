@@ -36,8 +36,18 @@ return [
 You can run the command below passing the URL as a parameter to check if the site has a feed.
 
 ```bash
-php artisan feed url
+php artisan feedvel:feed https://www.theminimalists.com/feed/
 ```
+
+```bash
++------+-----------------+-------+
+| Feed | Title           | Posts |
++------+-----------------+-------+
+| OK   | The Minimalists | 10    |
++------+-----------------+-------+
+```
+
+
 
 ## Usage
 
@@ -80,6 +90,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Andre Figueredo](https://github.com/avfigueredo)
+- [Simple Pie](http://simplepie.org/wiki/)
 
 ## License
 

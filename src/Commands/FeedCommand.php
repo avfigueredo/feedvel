@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 class FeedCommand extends Command
 {
-    public $signature = 'feed {url}';
+    public $signature = 'feedvel:feed {url}';
 
     public $description = 'Test if a site has an available feed.';
 
@@ -15,14 +15,9 @@ class FeedCommand extends Command
     {
         $this->comment("Checking...");
 
-        $url = $this->argument('url');
-
-        if (!$url) {
-            $this->error('The parameter url is missing.');
-            exit;
-        }
-
-        $feed = Feedvel::from($url);
+        $feed = Feedvel::from(
+            $this->argument('url')
+        );
 
         $this->table(
             ['Feed', 'Title', 'Posts'],
@@ -34,7 +29,6 @@ class FeedCommand extends Command
                 ],
             ]
         );
-
 
         $this->comment('All done');
     }
