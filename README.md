@@ -7,7 +7,13 @@
 
 ## About 
 
-Feedvel is an amazing package to obtain the feed RSS from a site. The Feedvel package uses the SimplePie parse feed. (http://simplepie.org/wiki/).
+This package provides an easy way to obtain the feed RSS from a site.
+
+## Requirements
+
+``
+PHP 8.0
+``
 
 ## Installation
 
